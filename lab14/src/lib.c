@@ -35,7 +35,7 @@ void task(char * str_res, double * res , char str[],int N){
         symbol=*(str+i);
             while(ch=strchr(str, symbol)){
                 kol++;
-                for (int k=ch-str;k<N;k++){ //движение по элементам строки и их перестановка
+                for (int k=ch-str;k<N;k++){ 
                     *(str+k)=*(str+k+1);
                 } 
             }
