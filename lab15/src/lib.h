@@ -150,7 +150,7 @@ void sort_increase(struct bird types[],int n, int criterion);
  * - Цикл для знаходження всих повторів і їх видалення, шляхом зсуву
  * - вивід результату роботи функції @function task за допомогою @function print
  */
-void percent_male_to_female(struct bird types[], int n);
+double percent_male_to_female(struct bird types[], int n);
 
 /**
  * @function task
@@ -244,5 +244,5 @@ void write_file_bin(struct bird types[], int n);
  * - Цикл для знаходження всих повторів і їх видалення, шляхом зсуву
  * - вивід результату роботи функції @function task за допомогою @function print
  */
-void write_struct_number(struct bird types[], int num);
+void write_struct_number(int num);
 #endif

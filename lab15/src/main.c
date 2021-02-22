@@ -86,13 +86,9 @@ int main() {
 	write_file_bin(types, n);
 	
 	printf("\nВведите индекс структуры, в которой нужно будет найти поле(от 0 до %d): ", n-1);
-	int num_a;
-	scanf("%d", &num_a);
-	printf("\nВведите поле, которое нужное найти : \nОкольцованность птицы[1]                Высота дома[5]\nВид птицы[2]                            Количество кормушек в доме[6]\nВозраст птицы[3]                        Наличие гнезда[7]\nПлощадь дома[4]                         Пол птицы[8]\nВведите число: ");
-	int num_b;
-	scanf("%d", &num_b);
-	int num=num_a*8+num_b;
-	write_struct_number(types, num);
+	int num;
+	scanf("%d", &num);
+	write_struct_number(num);
 	
 	return 0;
 }

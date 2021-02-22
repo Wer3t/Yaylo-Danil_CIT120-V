@@ -253,7 +253,7 @@ void sort_increase(struct bird types[], int n, int criterion){
 	}
 }
 
-void percent_male_to_female(struct bird types[], int n){
+double percent_male_to_female(struct bird types[], int n){
 	double male=0, female=0;
 	for(int i=0;i<n;i++){
 		if(types[i].sex==1){
@@ -266,6 +266,7 @@ void percent_male_to_female(struct bird types[], int n){
 	double percent_female= female/(male+female);
 	printf("\nПроцент мужских особей: %.2lf",percent_male);
 	printf("\nПроцент женских особей: %.2lf\n\n",percent_female);
+	return male;
 }
 
 int randm(){
@@ -303,11 +304,8 @@ void read_file_bin(struct bird types[], int n){
 	file = fopen("input.txt", "rb");
 	for(int i=0;i<n;i++){
 		fread(&types[i].ringed, 0,1,file);
-		int a = strchr(file, ' ');
 		fseek(file,2,1);
-		int b = strchr(file, ' ');
-		a=b-a;
-		fread(&types[i].species, sizeof(char),a,file);
+		fread(&types[i].species, sizeof(char),0,file);
 		fseek(file,2,1);
 		fread(&types[i].age, 0,1,file);
 		fseek(file,2,1);
@@ -327,66 +325,39 @@ void read_file_bin(struct bird types[], int n){
 
 void write_file_bin(struct bird types[], int n){
 	FILE *file;
-	file = fopen("output.txt", "wb");
-	for(int i=0;i<n;i++){
-		if(types[i].ringed==2){
-			fwrite("ringed, ", sizeof(char), 8, file);
-		}else if(types[i].ringed==1){
-			fwrite("non ringed, ", sizeof(char), 12, file);
-		}
-		int a=strlen(types[i].species);
-		fwrite(types[i].species, sizeof(char), a, file);
-		fseek(file,2,1);
-		fwrite(types[i].age, 0, 1, file);
-		fseek(file,2,1);
-		fwrite(types[i].house.square, 0, 1, file);
-		fseek(file,2,1);
-		fwrite(types[i].house.height, 0, 1, file);
-		fseek(file,2,1);
-		fwrite(types[i].house.num_feeders, 0, 1, file);
-		fseek(file,2,1);
-		if(types[i].house.nest==2){
-			fwrite("have nest, ", sizeof(char), 11, file);
-			
-		}else if(types[i].house.nest==1){
-			fwrite("haven't nest, ", sizeof(char), 14, file);
-		}
-		if(types[i].sex==2){
-			fwrite("male", sizeof(char), 4, file);
-		}else if(types[i].sex==1){
-			fwrite("female", sizeof(char), 6, file);
-		}
-		fseek(file,2,1);
-	}
+	file = fopen("output.dat", "wb");
+	fwrite(types,sizeof(struct bird),n,file);	
 	fclose(file);
 }
 
-void write_struct_number(struct bird types[], int num){
+void write_struct_number(int num){
 	FILE *file;
-	file = fopen("input.txt", "rb");
-	char rez[20];
-	int a,b;
-	if(num==1){
-		fscanf(file, "%s",rez);
-		printf("\n%s", rez);
-		
-	}else if(num==2){
-		a = strchr(file, ' ');
-		fseek(file,2*a+2,1);
-		fscanf(file, "%s",rez);
-		printf("\n%s", rez);
-		
-	}else{
-		fseek(file,7,1);
-		for(int i=0;i<num-2;i++){
-			a = strchr(file, ' ');
-			fseek(file,2,1);
-			b = strchr(file, ' ');
-			a=b-a;
-			fseek(file,2*a,1);
-		}
-		fscanf(file, "%s",rez);
-		printf("\n%s", rez);
-		fclose(file);
+	file = fopen("output.dat", "rb");
+	struct bird result;
+	fseek(file, num*sizeof(struct bird),SEEK_SET);
+	fread(&result, sizeof(struct bird), 1, file);
+	fclose(file);
+	printf("\n\n");
+	
+	
+	if(result.ringed==2){
+		printf("ringed, ");
+	}else if(result.ringed==1){
+		printf("non ringed, ");
+	}
+	printf("%s, ", result.species);
+	printf("%d, ", result.age);
+	printf("%d, ", result.house.square);
+	printf("%d, ", result.house.height);
+	printf("%d, ", result.house.num_feeders);
+	if(result.house.nest==2){
+		printf("have nest, ");
+	}else if(result.house.nest==1){
+		printf("haven't nest, ");
+	}
+	if(result.sex==2){
+		printf("male");
+	}else if(result.sex==1){
+		printf("female");
 	}
 }
