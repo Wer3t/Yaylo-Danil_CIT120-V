@@ -21,13 +21,21 @@ struct place {
 	char nest;
 };
 
-struct bird{
+typedef struct s_bird{
 	char ringed;
 	char species[20];
 	int age;
 	struct place house;
 	char sex;
-};
+	struct s_bird *next;
+	struct s_bird *prev;
+} bird;
+
+typedef struct DLinkedList{
+	size_t size;
+	bird *head;
+	bird *tail;
+} D_LinkedList;
 
 /**
  * @function task
@@ -44,10 +52,6 @@ struct bird{
  * - вивід результату роботи функції @function task за допомогою @function print
  */
  
-int insert(char * s1, char *s2, int num);
-int reduce(char *s, int start, int end);
 
-void add_struct(struct bird * types, int n);
-void remove_struct(struct bird * types, int n);
-
+D_LinkedList* create_list();
 #endif

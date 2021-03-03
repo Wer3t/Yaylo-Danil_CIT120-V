@@ -29,7 +29,7 @@ struct bird{
 	char sex;
 };
 /**
- * @function task
+ * @function count_lines
  *
  * Послідовність дій:
  * - оголошеня змінних 

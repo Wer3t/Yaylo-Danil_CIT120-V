@@ -9,25 +9,8 @@
  * @date 13-dec-2020
  * @version 1.0
  */
- 
-#include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
 
-struct place {
-	int square;
-	int height;
-	int num_feeders;
-	char nest;
-};
-
-struct bird{
-	char ringed;
-	char species[20];
-	int age;
-	struct place house;
-	char sex;
-};
+#include "list.h"
 
 /**
  * @function task
@@ -43,11 +26,24 @@ struct bird{
  * - Цикл для знаходження всих повторів і їх видалення, шляхом зсуву
  * - вивід результату роботи функції @function task за допомогою @function print
  */
- 
-int insert(char * s1, char *s2, int num);
-int reduce(char *s, int start, int end);
 
-void add_struct(struct bird * types, int n);
-void remove_struct(struct bird * types, int n);
+int count_lines(); 
+ 
+void read_file(D_LinkedList *list, int n);
+void write_file(D_LinkedList *list);
+void write_out(D_LinkedList *list);
+
+bird* getNth(D_LinkedList *list, size_t index);
+
+void insert(D_LinkedList *list, int to_add);
+void add_head(D_LinkedList *list);
+void add_tail(D_LinkedList *list);
+
+void deleteNth(D_LinkedList *list, int to_delete);
+
+void sorting(D_LinkedList *list, int criterion);
+void sort_abc(D_LinkedList *list, int criterion);
+void sort_yn(D_LinkedList *list, int criterion);
+void sort_increase(D_LinkedList *list, int criterion);
 
 #endif
