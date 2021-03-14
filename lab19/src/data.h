@@ -41,6 +41,8 @@ void add_tail(D_LinkedList *list);
 
 void deleteNth(D_LinkedList *list, int to_delete);
 
+int finder(D_LinkedList *list, int criterion);
+
 void sorting(D_LinkedList *list, int criterion);
 void sort_abc(D_LinkedList *list, int criterion);
 void sort_yn(D_LinkedList *list, int criterion);

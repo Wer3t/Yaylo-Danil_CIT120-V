@@ -34,44 +34,57 @@
  * - вивід результату роботи функції @function generation
  * @return успішний код повернення з програми (0)
  */
-int main() {
+int main()
+{
 	srand(time(0));
 	printf("\n");
-	
-	D_LinkedList *list=create_list();
-	
-	int n=count_lines();
+
+	D_LinkedList *list = create_list();
+
+	int n = count_lines();
 	read_file(list, n);
 	write_file(list);
 	write_out(list);
-	
+
 	int to_add = 2;
-	if(to_add ==0){
+	if (to_add == 0)
+	{
 		add_tail(list);
-	}else if(to_add==list->size||to_add>list->size){
+	}
+	else if (to_add == list->size || to_add > list->size)
+	{
 		add_head(list);
-	}else if(to_add>0&&to_add<list->size){
+	}
+	else if (to_add > 0 && to_add < list->size)
+	{
 		insert(list, to_add);
 	}
 	write_out(list);
-	
+
 	int to_delete = 3;
 	to_delete--;
 	deleteNth(list, to_delete);
 	write_out(list);
-	
-	int criterion=0;
+
+	int criterion = 0;
+	//char find_criterion[]={};
+	//printf("\nВведите критерий, по которому будет производиться поиск структуры : \nОкольцованность птицы[1]                Высота дома[5]\nВид птицы[2]                            Количество кормушек в доме[6]\nВозраст птицы[3]                        Наличие гнезда[7]\nПлощадь дома[4]                         Пол птицы[8]\nВведите число: ");
+	//scanf("%d", &criterion);
+	//finder(list, criterion);
+	//printf("\n");
+
 	printf("\nВведите критерий, по которому будут отсортированы структуры : \nОкольцованность птицы[1]                Высота дома[5]\nВид птицы[2]                            Количество кормушек в доме[6]\nВозраст птицы[3]                        Наличие гнезда[7]\nПлощадь дома[4]                         Пол птицы[8]\nВведите число: ");
 	scanf("%d", &criterion);
-	if(criterion>0&&criterion<9){
-	sorting(list, criterion);
-	}else{
+	if (criterion > 0 && criterion < 9)
+	{
+		sorting(list, criterion);
+	}
+	else
+	{
 		printf("\nВведено неверное число!\n");
 	}
 	printf("\n");
-	write_file(list);
-	
+	write_out(list);
+
 	return 0;
 }
-
-
