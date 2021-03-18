@@ -7,7 +7,7 @@
  * @version 1.0
  */
  
-#include "lib.h"
+#include "./src/lib.h"
 
 unsigned short test_insert(){
 	char expected_str[]="tetext2xt1";

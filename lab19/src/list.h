@@ -38,7 +38,7 @@ typedef struct DLinkedList{
 } D_LinkedList;
 
 /**
- * @function task
+ * @function create_list()
  *
  * Послідовність дій:
  * - оголошеня змінних 
@@ -51,7 +51,15 @@ typedef struct DLinkedList{
  * - Цикл для знаходження всих повторів і їх видалення, шляхом зсуву
  * - вивід результату роботи функції @function task за допомогою @function print
  */
- 
-
 D_LinkedList* create_list();
+/**
+ * @function deleteDbLinkedList()
+ *
+ * Послідовність дій:
+ * - оголошеня змінних 
+ * 	@param str_res  Результуючий масив вказівників на всі символи, які зустрічаються
+ * 	@param res  Результуючий масив вказівників на частоту зустрічання символів
+ * - вивід результату роботи функції @function task за допомогою @function print
+ */
+void deleteDbLinkedList(D_LinkedList *list);
 #endif

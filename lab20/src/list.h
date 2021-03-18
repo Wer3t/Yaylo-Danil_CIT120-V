@@ -1,5 +1,9 @@
+#define DEBUG printf("\nТекущая дата: %s, текущее время: %s, функция: %s\n", __DATE__, __TIME__, __FUNCTION__);
+
 #ifndef _YAYLO_13_
 #define _YAYLO_13_
+
+
 
 /**
  * @file lib.h
@@ -9,11 +13,37 @@
  * @date 13-dec-2020
  * @version 1.0
  */
+ 
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+#include "time.h"
 
-#include "list.h"
+struct place {
+	int square;
+	int height;
+	int num_feeders;
+	char nest;
+};
+
+typedef struct s_bird{
+	char ringed;
+	char species[20];
+	int age;
+	struct place house;
+	char sex;
+	struct s_bird *next;
+	struct s_bird *prev;
+} bird;
+
+typedef struct DLinkedList{
+	size_t size;
+	bird *head;
+	bird *tail;
+} D_LinkedList;
 
 /**
- * @function task
+ * @function create_list()
  *
  * Послідовність дій:
  * - оголошеня змінних 
@@ -26,27 +56,15 @@
  * - Цикл для знаходження всих повторів і їх видалення, шляхом зсуву
  * - вивід результату роботи функції @function task за допомогою @function print
  */
-
-int count_lines(); 
- 
-void read_file(D_LinkedList *list, int n);
-void write_file(D_LinkedList *list);
-void write_out(D_LinkedList *list);
-
-bird* getNth(D_LinkedList *list, size_t index);
-
-void insert(D_LinkedList *list, int to_add);
-void add_head(D_LinkedList *list);
-void add_tail(D_LinkedList *list);
-
-void deleteNth(D_LinkedList *list, int to_delete);
-
-int finder(D_LinkedList *list, int criterion, char obj[]);
-void switch_finder(D_LinkedList *list, int criterion);
-
-void sorting(D_LinkedList *list, int criterion);
-void sort_abc(D_LinkedList *list, int criterion);
-void sort_yn(D_LinkedList *list, int criterion);
-void sort_increase(D_LinkedList *list, int criterion);
-
+D_LinkedList* create_list();
+/**
+ * @function deleteDbLinkedList()
+ *
+ * Послідовність дій:
+ * - оголошеня змінних 
+ * 	@param str_res  Результуючий масив вказівників на всі символи, які зустрічаються
+ * 	@param res  Результуючий масив вказівників на частоту зустрічання символів
+ * - вивід результату роботи функції @function task за допомогою @function print
+ */
+void deleteDbLinkedList(D_LinkedList *list);
 #endif

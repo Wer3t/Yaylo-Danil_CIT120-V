@@ -29,7 +29,7 @@ int count_lines()
 
 void read_file(D_LinkedList *list, int n)
 {
-
+	DEBUG;
 	FILE *file;
 	file = fopen("input.txt", "r");
 	for (int i = 0; i < n; i++)

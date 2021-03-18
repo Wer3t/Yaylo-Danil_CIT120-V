@@ -36,9 +36,10 @@
  */
 int main()
 {
+	clock_t start = clock();
 	srand(time(0));
 	printf("\n");
-
+	DEBUG;
 	D_LinkedList *list = create_list();
 
 	int n = count_lines();
@@ -85,5 +86,9 @@ int main()
 	printf("\n");
 	write_out(list);
 	deleteDbLinkedList(list);
+
+	clock_t end = clock();
+	double time_spent = (double)(end-start)/CLOCKS_PER_SEC;
+	printf("\nВремя потраченное на выполнение программы: %lf\n", time_spent);
 	return 0;
 }

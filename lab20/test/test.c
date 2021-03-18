@@ -1,7 +1,9 @@
-#include "list.h"
+#include "/home/danil/dev/Yaylo-Danil_CIT120-V/lab20/src/list.h"
 #include "data.h"
 
 unsigned short test_finder(){
+    clock_t start = clock();
+    DEBUG;
     D_LinkedList *list = create_list();
 	int n = count_lines();
 	read_file(list, n);
@@ -23,9 +25,17 @@ unsigned short test_finder(){
     }else{
         printf("\nТест №2 функции по поиску обьекта в списке Провален");
     }
+    clock_t end = clock();
+	double time_spent = (double)(end-start)/CLOCKS_PER_SEC;
+	printf("\nВремя потраченное на выполнение теста test_finder: %lf\n", time_spent);
+    deleteDbLinkedList(list);
 }
 
 int main(){
+    clock_t start = clock();
     test_finder();
+    clock_t end = clock();
+	double time_spent = (double)(end-start)/CLOCKS_PER_SEC;
+	printf("\nВремя потраченное на выполнение всех тестов: %lf\n", time_spent);
     return 0;
 }
