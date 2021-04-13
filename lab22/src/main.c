@@ -40,7 +40,7 @@ int main()
 	printf("\n");
 	regex_t regex;
 	int reti;
-	reti = regcomp(&regex, "^[A-Z]|^[А-Я]((\\w|\\d|[А-Яа-я])+(\\s?[.,?:;!]?)|([.,?:;!]?\\s?))+.$", REG_EXTENDED);
+	reti = regcomp(&regex, "^[A-ZА-Я]((\\w|\\d|[А-Яа-я])+(\\s?[.,?:;!]?))", REG_EXTENDED);
 	if (reti) {
    		fprintf(stderr, "Could not compile regex\n");
     	exit(1);
@@ -48,9 +48,16 @@ int main()
 
 	D_LinkedList *list = create_list();
 
-	read_list(list, regex, reti);
-	
-	write_out(list);
+	int n=count_lines()/2+1;
+	read_list(list, regex, reti, n);
+
+	reti = regcomp(&regex, ".+\\s.+", REG_EXTENDED);
+	if (reti) {
+   		fprintf(stderr, "Could not compile regex\n");
+    	exit(1);
+	}
+
+	write_out(list, regex, reti);
 
 	deleteDbLinkedList(list);
 	regfree(&regex);

@@ -1,9 +1,9 @@
-#include "/home/danil/dev/Yaylo-Danil_CIT120-V/lab25/src/lib.h"
+#include "/home/danil/dev/Yaylo-Danil_CIT120-V/lab23/src/lib.h"
 
 void test_add_bird(){
     Birds test;
     int res=0;
-    test.Birds::add_bird(0,"ringed", "bird", 10,20,30,2,"have","male");
+    test.add_bird(0,"ringed", "bird", 10,20,30,2,"have","male");
     if(test.birds[0].GetRinged()!="ringed"){
         cout<< "Тест на проверку добавления птицы в вектор провален"<< endl;
     } else if(test.birds[0].GetSpecies()!="bird"){

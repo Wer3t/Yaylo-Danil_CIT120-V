@@ -27,7 +27,9 @@
  * - вивід результату роботи функції @function task за допомогою @function print
  */
  
-void read_list(D_LinkedList *list, regex_t regex, int reti);
+void read_list(D_LinkedList *list, regex_t regex, int reti, int n);
 
-void write_out(D_LinkedList *list);
+void write_out(D_LinkedList *list, regex_t regex, int reti);
+
+int count_lines();
 #endif
