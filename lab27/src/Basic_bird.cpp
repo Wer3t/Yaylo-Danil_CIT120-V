@@ -1,7 +1,6 @@
 #include "Basic_bird.h"
 
 Basic_bird::Basic_bird(){
-    cout << "\nВызвался конструктор по умолчанию Basic_birds" << endl;
         this->ringed = "default";
         this->species = " ";
         this->age = 0;

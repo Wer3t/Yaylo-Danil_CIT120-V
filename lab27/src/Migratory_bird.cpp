@@ -38,4 +38,6 @@ Basic_bird* Migratory_bird::AddBird(Month month_away, Month month_arrival, std::
     return temp;
 }
 
-Basic_bird* AddBird(int min_temperature, int max_temperature, std::string ringed, std::string species, int age, int square, int height, int num_feeders, std::string nest, std::string sex){}
+Basic_bird* Migratory_bird::AddBird(int min_temperature, int max_temperature, std::string ringed, std::string species, int age, int square, int height, int num_feeders, std::string nest, std::string sex){
+    return 0;
+}

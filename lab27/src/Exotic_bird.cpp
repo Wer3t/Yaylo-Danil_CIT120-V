@@ -7,16 +7,16 @@ Exotic_bird::Exotic_bird():Basic_bird(){
     this->max_temperature=40;
 }
 
-void Exotic_bird::SetMinTemperature(short min){
+void Exotic_bird::SetMinTemperature(int min){
     this->min_temperature=min;
 }
-void Exotic_bird::SetMaxTemperature(short max){
-    this->min_temperature=max;
+void Exotic_bird::SetMaxTemperature(int max){
+    this->max_temperature=max;
 }
-short Exotic_bird::GetMinTemperature(){
+int Exotic_bird::GetMinTemperature(){
     return min_temperature;
 }
-short Exotic_bird::GetMaxTemperature(){
+int Exotic_bird::GetMaxTemperature(){
     return max_temperature;
 }
 
@@ -34,7 +34,11 @@ Basic_bird* Exotic_bird::AddBird(int min_temperature, int max_temperature, std::
     temp->SetHouseNumFeeders (num_feeders);
     temp->SetHouseNest (nest);
     temp->SetSex (sex);
+    temp->SetMinTemperature(min_temperature);
+    temp->SetMaxTemperature(max_temperature);
     return temp;
 }
 
-Basic_bird* AddBird(Month month_away, Month month_arrival, std::string ringed, std::string species, int age, int square, int height, int num_feeders, std::string nest, std::string sex){}
+Basic_bird* Exotic_bird::AddBird(Month month_away, Month month_arrival, std::string ringed, std::string species, int age, int square, int height, int num_feeders, std::string nest, std::string sex){
+    return 0;
+}
