@@ -1,6 +1,6 @@
 targets = main.bin 
 CC = g++
-C_OPTS = -std=gnu11 -g -Wall -Wextra -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -I./src src/Basic_bird.cpp src/Migratory_bird.cpp src/Exotic_bird.cpp src/Birds.cpp
+C_OPTS = -I./src src/*.cpp
 
 all: clean prep compile run
 
@@ -11,7 +11,7 @@ prep:
 
 compile: main.bin 
 
-main.bin: src/main.cpp
+main.bin: main.cpp
 	$(CC) $(C_OPTS) $< -o ./dist/$@
 
 run: clean prep compile

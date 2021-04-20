@@ -1,6 +1,6 @@
 targets = main.bin 
 CC = g++
-C_OPTS = -std=gnu11 -g -Wall -Wextra -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -I./src src/Basic_bird.cpp src/Migratory_bird.cpp src/Exotic_bird.cpp src/Birds.cpp
+C_OPTS = -std=gnu11 -g -Wall -Wextra -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -I./src src/Class.cpp src/Class1.cpp 
 
 all: clean prep compile run
 
