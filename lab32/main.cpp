@@ -6,7 +6,7 @@
 
 int main()
 {
-    /*cout << "\n\n";
+    cout << "\n\n";
     Birds b, b1, b2;
 
     vector<unique_ptr<Birds>> v_Birds;
@@ -32,10 +32,10 @@ int main()
     }
     cout << "\n\n--------------------------------------------Вывод конкатенированных векторов--------------------------------------------\n" << endl;
 
-    v_Birds.begin()->get()->PrintBirds();*/
+    v_Birds.begin()->get()->PrintBirds();/*
 
     
     int *a=new int(5);
     MyPtr<int*> ptr(&a);
-    MyPtr<int*> ptr2(ptr);
+    MyPtr<int*> ptr2(ptr);*/
 }
